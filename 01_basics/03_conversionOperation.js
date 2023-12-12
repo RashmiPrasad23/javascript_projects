@@ -44,4 +44,36 @@ let stringNumber=String(someNumber)
 console.log(stringNumber);
 console.log(typeof stringNumber)
 
+/******************************************operations ****************************************** */
+let str1="hello"
+let str2="hitesh"
 
+let str3=str1+str2
+console.log(str3)
+
+console.log("1"+2) //12
+console.log(1+"2"); //12
+console.log("1"+2+2); //122
+console.log(1+2+"2"); //32
+
+/********************************************comparison****************************** */
+console.log(2>1);  //true
+console.log(2>=1); //true
+
+console.log("2">1);  //automatically js cnverted into number n then compared
+console.log("02">1);
+
+console.table([null>0,null==0,null>=0]);
+console.table([undefined>0,undefined==0,undefined>=0]);  //all values false
+
+//NOTE: AVOID ABOVE TYPES OF CONVERSION
+
+
+
+/******************************************** compare*********************************/
+//strict check
+//   === checks value with its datatype
+console.log("2"===2);          //false
+
+//   == only checks value
+console.log("2"==2);          //true

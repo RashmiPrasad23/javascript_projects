@@ -42,3 +42,22 @@ console.log(typeof myObj)
 
 
 
+/*******************************************memories in js****************************************************/ 
+
+//stack(primitive type), Heap (non-primitive)
+let myYoutubename="rashmidotcom"
+
+let anothername=myYoutubename
+anothername="chaiaurcode"
+console.log(myYoutubename)
+console.log(anothername)
+
+//heap
+let myObjext={
+    naame:"rashmi",
+    age:22,
+}
+let myobj2=myObjext;
+myobj2.naame="rimjhim"
+
+console.table([myObjext,myobj2])

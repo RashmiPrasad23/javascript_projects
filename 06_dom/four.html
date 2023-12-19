@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | chai aur code</title>
+</head>
+<body style="background-color: black;color: white;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+        //create element
+       const li=document.createElement('li')
+       //set inner text
+       li.innerHTML=`${langName}`    //traversing hoti hai puri
+       //add element under ul tag
+       document.querySelector('.language').appendChild(li)
+
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+
+    //optimised way bcoz whole tree is getting traversed
+    function addOptimisedLang(langName){
+      //create element
+      const li=document.createElement('li');
+      li.appendChild(document.createTextNode(langName));
+     document.querySelector('.language').appendChild(li)
+    }
+    addOptimisedLang("golang")
+
+    //edit  values
+    const secondLang=document.querySelector("li:nth-child(2)")
+    const newli=document.createElement('li')
+    newli.textContent="Mojo"
+    secondLang.replaceWith(newli)
+
+    //edit value
+    const firstLang=document.querySelector("li:first-child")
+    firstLang.outerHTML='<li>Typescript</li>'
+
+    //remove element
+    const lastLang=document.querySelector("li:last-child")
+    lastLang.remove()
+
+
+</script>
+</html>

@@ -44,7 +44,7 @@ const obj5={...obj1,...obj2,...obj3}
 console.log(obj5);
 
 //m-3
-//when data comes from database...it will in form of array
+//when data comes from database...it will in form of array (obj in form of array)
 const users=[
     {
       id:1,

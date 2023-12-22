@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+
+
+<script>
+    const sayHitesh=function(){
+        console.log("hitesh");
+    }
+    const changeText=function(){
+        document.querySelector('h1').innerHTML="best js series"
+    }
+   
+    //a method which calls api also
+    //2 sec k baad ye fxn ko execute kiya, i.e name print kiya.....bss ek baar kaam krunga
+    // setTimeout(function(){
+    //     console.log("hitesh");
+    // },2000)
+
+    //setTimeout(sayHitesh,2000)
+
+    //eg. //thodi der website pr rehte hai n kuch tym  baad ek pop up aa jaati hai, "hmara discount chl rha hai,course kharid lo"
+    //->it is done by these fxn
+    const changeMe=setTimeout(changeText,2000)
+    
+    //maan lo thode tym mei event nhi hua toh aap usko kaise rokoge ...uske liye we use clearTimeout()
+    //clearTimeout() ko ref. chahiye hota  hai ki kon se setTimeout() ko aap htana chahte hai
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(changeMe)
+        console.log("stopped");
+    })
+    
+
+</script>
+</html>

@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121;">
+    <!-- fetch se api req krte hai hm...it is new
+    n isse pehle bhi api req hoti thi-> n udhr hm xmlhttp req bhejte the -->
+    <card>
+        <div class="image" style="height:fit-content; width:fit-content;">
+
+        </div>
+    </card>
+
+</body>
+<script>
+    // ek method jisse hm req bnaate n send krte
+    //open()->req send krti hai
+    const reqURL='https://api.github.com/users/hiteshchoudhary'
+    const xhr=new XMLHttpRequest()
+    //two parameters passed-> req type,url
+    xhr.open('GET',reqURL)
+    //cntinuous state check n no is printed
+    xhr.onreadystatechange=function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState===4){
+            //current context ki baat ...isiliye this keyword used
+            //api se most of the tym data string mei aati hai n usko hm cnvert krte hai obj mei ya json mei ,jaisa bhi present ho data,
+            //use accordingly, isiliye JSON.parse usko json mei cnvert kiya n then hm usse data nikaal paaye dot use kr kr
+            const data=JSON.parse(this.responseText);
+            console.log(data);
+            console.log(data.followers);
+            console.log(data.avatar_url);
+            const followers=data.followers;
+            const avatar=data.avatar_url;
+
+        }
+        // const div=document.createElement('div')
+        // console.log(div);
+        // const image=document.createElement('img')
+        // console.log(image);
+        // img.innerHTML=`<img src="${avatar}" alt="image">`
+        // div.appendChild(image)
+        // document.body.appendChild(div)
+    }
+   
+    //req sent
+    xhr.send()
+    
+
+</script>
+</html>

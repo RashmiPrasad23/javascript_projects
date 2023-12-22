@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+</body>
+<script>
+    // setInterval(function(){
+    //     console.log("rashmi",Date.now());
+    // },1000);
+
+
+    const sayDate=function(str){
+      console.log(str,Date.now());
+   }
+   //fxn pass,time pass,argument pass
+  // const intervalId=setInterval(sayDate,1000,"hi")
+
+
+    // to stop the interval fxn
+   //clearInterval(intervalId)
+  
+
+   //start the interval when start button is clicked ,and clear the interval when stop button is being clicked
+   let intervalid;
+    document.querySelector("#start").addEventListener('click',function(){
+    //    setInterval(intervalid,1000)
+         if(!intervalid){
+            intervalid=setInterval(function(){
+                 console.log("hii",Date.now());
+         },1000)
+          console.log('start');
+         }
+    })
+
+    document.querySelector("#stop").addEventListener('click',function(){
+        clearInterval(intervalid)
+        console.log('stop');
+        intervalid=null;
+
+    })
+
+    //change background color at every second
+    let intervalIdColor;
+    const randomColor = function () {
+            let letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+    };
+    const changeColor = function () {
+            document.querySelector('body').style.backgroundColor = randomColor();
+        };
+    document.querySelector('#start').addEventListener('click', function () {
+            if(!intervalIdColor){
+                intervalIdColor = setInterval(changeColor, 1000);
+            console.log('start');
+            }
+    });
+
+    document.querySelector('#stop').addEventListener('click', function () {
+            clearInterval(intervalIdColor);
+            console.log('stop');
+            //memory save...i.e set intervalIdColor=null,bcoz kaam khatam ho gya hai,
+            //therefore dereference kr diya to save memory
+            intervalIdColor=null;
+            
+    })
+</script>
+</html>
